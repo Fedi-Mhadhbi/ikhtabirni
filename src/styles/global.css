@@ -8,3 +8,4 @@
 .quiz-tools{display:flex;gap:7px}
 .install-section{margin-top:18px}.install-button{background:#f7f1e2;color:var(--forest);border:1px solid #eadbb8}.install-button:hover{background:#efe5ca}.install-notice{justify-content:center}.install-help{margin:10px 0 0;color:#65736a;font-size:14px;line-height:1.8;text-align:center}
 .editor-help{margin:4px 0 0;padding:12px 14px;border-radius:10px;background:#edf5ee;color:#315f3e;line-height:1.8}
+.realtime-status{display:inline-block;margin-top:8px;padding:5px 9px;border-radius:8px;background:#f2f3ef;color:#59675e;font-size:13px}.realtime-status.connected{background:#e8f3e9;color:#315f3e}.realtime-status.disconnected{background:#fff0ed;color:#943f34}
