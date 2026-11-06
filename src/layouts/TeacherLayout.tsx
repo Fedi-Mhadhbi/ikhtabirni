@@ -1,0 +1,1 @@
+import{Link,Outlet}from'react-router-dom';export default function TeacherLayout(){return <><aside className="side-nav"><Link to="/teacher">اختباراتي</Link><Link to="/teacher/create">إنشاء اختبار</Link></aside><Outlet/></>}
