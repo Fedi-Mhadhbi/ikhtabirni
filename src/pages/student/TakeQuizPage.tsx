@@ -8,7 +8,9 @@ type Question = { id:string; question_text:string; question_type:string; points:
 type QuizSession = { title:string; student_name:string; questions:Question[] };
 
 export default function TakeQuizPage() {
-  const { id } = useParams(); const navigate = useNavigate();
+  // The route is /take/:sessionId. Read that exact parameter so a student
+  // who joins successfully can load the session-specific quiz.
+  const { sessionId: id } = useParams(); const navigate = useNavigate();
   const [quiz,setQuiz]=useState<QuizSession|null>(null); const [index,setIndex]=useState(0);
   const [answers,setAnswers]=useState<Record<string,string[]>>(()=>{try{return JSON.parse(localStorage.getItem(`ikhtabirni-answers-${id}`)||'{}')}catch{return{}}}); const [error,setError]=useState(''); const [busy,setBusy]=useState(false);const[recording,setRecording]=useState<{stop:()=>void}|null>(null);const[previewUrl,setPreviewUrl]=useState('');
   useEffect(()=>{ let active=true; async function load(){
