@@ -17,7 +17,7 @@
 ## إعداد Supabase
 
 1. أنشئي مشروعاً في Supabase، وفعّلي تسجيل الدخول بالبريد الإلكتروني وميزة المستخدم المجهول (Anonymous sign-ins) للطلاب.
-2. من SQL Editor شغّلي ملفات `supabase/migrations` بالترتيب من `001_initial_schema.sql` إلى `005_teacher_grading.sql`.
+2. من SQL Editor شغّلي ملفات `supabase/migrations` بالترتيب من `001_initial_schema.sql` إلى `006_defaults_and_public_quiz_lookup.sql`.
 3. تضيف الهجرة الرابعة جدولي `quiz_sessions` و`submissions` إلى منشورات Realtime تلقائياً.
 4. انسخي عنوان المشروع ومفتاح `publishable` (أو `anon` العام) إلى `.env` وفق `.env.example`. لا تضعي مفتاح `service_role` في الواجهة.
 5. تحتاج المصادقة بالبريد إلى إعداد رابط إعادة التوجيه وعنوان الموقع في Auth URL Configuration. عند استضافة GitHub Pages أضيفي عنوان الموقع المنشور أيضاً.
