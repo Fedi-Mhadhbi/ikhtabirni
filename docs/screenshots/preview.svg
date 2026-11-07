@@ -1,0 +1,13 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="720" height="480" viewBox="0 0 720 480" role="img" aria-label="Ù…Ø¹Ø§ÙŠÙ†Ø© Ù…ØªØ­Ø±ÙƒØ© Ù„ÙˆØ§Ø¬Ù‡Ø§Øª Ø§Ø®ØªØ¨Ø±Ù†ÙŠ">
+<title>Ù…Ø¹Ø§ÙŠÙ†Ø© Ù…ØªØ­Ø±ÙƒØ© Ù„ÙˆØ§Ø¬Ù‡Ø§Øª Ø§Ø®ØªØ¨Ø±Ù†ÙŠ</title>
+<rect width="720" height="480" rx="24" fill="#f8f7f1"/>
+<image href="home.png" x="0" y="0" width="720" height="480" preserveAspectRatio="xMidYMid meet">
+<animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.29;0.34;0.96;1" dur="12s" repeatCount="indefinite"/>
+</image>
+<image href="login.png" x="0" y="0" width="720" height="480" preserveAspectRatio="xMidYMid meet" opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.37;0.61;0.66;1" dur="12s" repeatCount="indefinite"/>
+</image>
+<image href="student-entry.png" x="0" y="0" width="720" height="480" preserveAspectRatio="xMidYMid meet" opacity="0">
+<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.63;0.68;0.95;1" dur="12s" repeatCount="indefinite"/>
+</image>
+</svg>
