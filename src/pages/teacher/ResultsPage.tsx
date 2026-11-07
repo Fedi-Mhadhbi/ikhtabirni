@@ -75,10 +75,20 @@ export default function ResultsPage() {
     setAnswers([]);
     setAudioUrls({});
     setAudioErrors({});
-    const submission = student.submissions[0];
-    if (!client || !submission) return;
+    if (!client) return;
     setLoadingAnswers(true);
     try {
+      const { data: submission, error: submissionError } = await client.from('submissions')
+        .select('id,session_id,total_score,maximum_score,grading_status,submitted_at')
+        .eq('session_id', student.id)
+        .maybeSingle();
+      if (submissionError) throw submissionError;
+      if (!submission) {
+        setModalMessage('لم يظهر تسليم لهذا التلميذ بعد. اضغط «تحديث النتائج» ثم حاول مرة أخرى.');
+        return;
+      }
+      setSelected({ ...student, submissions: [submission] });
+      setStudents(current => current.map(item => item.id === student.id ? { ...item, submissions: [submission] } : item));
       const { data, error } = await client.from('submissions')
         .select('*,student_answers(*,questions(question_text,points,question_type,answers(id,answer_text,is_correct)))')
         .eq('id', submission.id)
@@ -160,7 +170,7 @@ export default function ResultsPage() {
         <div className="result-name"><b>{student.student_name}</b><small>{student.status === 'submitted' && student.submissions[0] ? `أرسل الإجابة ${new Date(student.submissions[0].submitted_at).toLocaleTimeString('ar', { hour: '2-digit', minute: '2-digit' })}` : `انضمّ ${new Date(student.joined_at).toLocaleTimeString('ar', { hour: '2-digit', minute: '2-digit' })}`}</small></div>
         <span className={`status ${student.status === 'submitted' ? 'published' : 'draft'}`}>{student.status === 'submitted' && student.submissions[0]?.grading_status === 'partial' ? 'بانتظار التصحيح' : student.status === 'submitted' ? 'تم الإرسال' : 'يعمل على الاختبار'}</span>
         {student.submissions[0] && <b>{student.submissions[0].total_score} / {student.submissions[0].maximum_score}</b>}
-        <button className="button light" disabled={!student.submissions.length} onClick={() => void openStudent(student)}>عرض الإجابات</button>
+        <button className="button light" type="button" onClick={() => void openStudent(student)}>عرض الإجابات</button>
       </article>)}</div>}
 
     {selected && <div className="modal-backdrop" role="presentation" onClick={event => { if (event.target === event.currentTarget) setSelected(null); }}>
